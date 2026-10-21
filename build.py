@@ -164,7 +164,7 @@ def main() -> None:
             ld_json += '\n<meta name="robots" content="noindex">'
 
         canonical = SITE + (path if path != "/404.html" else "/404.html")
-        og_image = SITE + "/static/img/social-" + ("home" if path == "/" else stem) + ".png"
+        og_image = SITE + "/static/img/social-" + ("home" if path in ("/", "/404.html") else stem) + ".png"
         page_html = render(
             template,
             title=html.escape(meta["title"], quote=True),
