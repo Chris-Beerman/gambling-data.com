@@ -42,7 +42,7 @@ PAGES = {
         "nav": "Video gambling",
         "title": "Illinois Video Gambling Data: Terminals, Revenue and Taxes by Town, 2012–2026",
         "description": "Illinois video gaming terminal data compiled from Illinois Gaming Board monthly reports: terminals, locations, amount played, net terminal income and taxes by month and municipality, September 2012 to the latest month. Free CSV downloads.",
-        "short": "Nearly 50,000 terminals in bars, restaurants and gas stations: play, losses and taxes by month and by town since 2012.",
+        "short": "More than 50,000 terminals in bars, restaurants and gas stations: play, losses and taxes by month and by town since 2012.",
         "cat_anchor": "Illinois video gambling data",
         "subject": "video gambling page",
     },
