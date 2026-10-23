@@ -29,7 +29,13 @@ The home page's figures, "current through" months and chart are read from the da
 
 ## Monthly update
 
-The Illinois Gaming Board posts a new month in the first days of the next month. The practice site's pages are updated first (that routine is documented in the practice's project notes); then:
+The Illinois Gaming Board posts a new month in the first days of the next month. Since October 2026 the
+routine is driven from this repository: `tools/monthly/README.md` describes it. In short, one script per
+page computes the month's edits from `src/content/*.html` (text replacements and regenerated charts),
+applies them here, and emits a JavaScript payload that applies the same edits to the practice site's
+Markdown block in the browser. Then `python3 tools/social_cards.py`, `python3 build.py`, commit and push.
+
+The older capture route still works when the pages have been edited on the practice site first:
 
 1. In a browser tab on `https://www.chicagoaddictiontherapy.com/`, run the capture snippet below. It saves `cat-data-pages.json` to Downloads.
 2. `python3 tools/import_from_cat.py ~/Downloads/cat-data-pages.json` rewrites `src/content/{illinois,video-gambling,casinos,sports-betting}.html`.
@@ -53,12 +59,14 @@ If the pages are ever edited here first instead, the same body can be pasted bac
 
 ## Things still to do
 
-- Host the CSV downloads here (they are currently linked from the practice site's `/s/` files) and point the Dataset `distribution` entries at them.
+- Host the CSV downloads here (they are currently linked from the practice site's `/s/` files, last refreshed in September 2026 and now three months behind the pages) and point the Dataset `distribution` entries at them. Planned for the November 2026 run.
 - Casino page CSV, promised on the page "with the next quarterly update".
 - Search Console: add the property, submit `sitemap.xml`, request indexing for the six URLs.
 - Decide, after a couple of months of Search Console data, whether the practice site's copies should carry a cross-domain canonical to these pages or stay as they are.
 
 ## Hosting
+
+**DNS is still pending (October 23, 2026):** gambling-data.com still resolves to the GoDaddy parking page, so the deployed site is not reachable at the domain until the records below are in place.
 
 GitHub Pages, source `main` branch `/docs`, custom domain `gambling-data.com` (the `CNAME` file is written by `build.py`). DNS at GoDaddy: A records for `@` to 185.199.108.153, 185.199.109.153, 185.199.110.153 and 185.199.111.153; CNAME for `www` to `chris-beerman.github.io`. Tick "Enforce HTTPS" in the repository's Pages settings once the certificate has been issued.
 
